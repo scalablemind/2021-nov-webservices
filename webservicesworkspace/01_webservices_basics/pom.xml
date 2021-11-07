@@ -1,0 +1,58 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.scalablemind</groupId>
+  <artifactId>01_webservices_basics</artifactId>
+  <version>1.0.0</version>
+  <name>01_webservices_basics</name>
+  <description>01_webservices_basics</description>
+  <packaging>war</packaging>
+  <properties>
+    <tomcat.version>8.0.48</tomcat.version>
+    <java.version>1.8></java.version>
+</properties>
+
+<dependencies>
+
+<dependency>
+        <groupId>org.apache.tomcat</groupId>
+        <artifactId>tomcat-catalina</artifactId>
+        <version>${tomcat.version}</version>
+        <scope>provided</scope>
+    </dependency>
+    
+    <dependency>
+    <groupId>javax.servlet</groupId>
+    <artifactId>javax.servlet-api</artifactId>
+    <version>3.0.1</version>
+    <scope>provided</scope>
+</dependency>
+</dependencies>
+
+<build>
+<finalName>webservicesbasic</finalName>
+<plugins>
+
+<plugin>
+  <groupId>org.apache.tomcat.maven</groupId>
+  <artifactId>tomcat8-maven-plugin</artifactId>
+  <version>2.0</version>
+</plugin>
+<plugin>
+	
+    <artifactId>maven-war-plugin</artifactId>
+    <configuration>
+        <attachClasses>true</attachClasses>
+        <webXml>target/webservicesbasic/WEB-INF/web.xml</webXml>
+         <outputDirectory>D:\official\servers\apache-tomcat-8.5.72\webapps</outputDirectory>
+        <webResources>
+            <resource>
+                <directory>src/main/webapp</directory>
+                <filtering>true</filtering>
+            </resource>
+        </webResources>
+    </configuration>
+</plugin>
+</plugins>
+</build>
+
+</project>
